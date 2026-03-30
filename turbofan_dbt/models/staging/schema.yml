@@ -8,8 +8,12 @@ models:
     columns:
       - name: unit
         description: Engine unit identifier.
+        tests:
+          - not_null
       - name: cycle
         description: Flight cycle number for this engine.
+        tests:
+          - not_null
       - name: s2
         description: Sensor 2 reading.
       - name: s3

@@ -1,6 +1,19 @@
 version: 2
 
 models:
+  - name: int_rolling_features
+    description: >
+      Computes 30-cycle rolling statistics (mean, stddev) for each of the 14 informative
+      sensors per engine. Materialized as a table to avoid recomputing the window
+      functions on every downstream query. stddev is coalesced to 0 for rows with
+      fewer than 2 preceding cycles. Outputs 44 columns: unit, cycle, 14 raw sensors,
+      14 means, 14 stds.
+    columns:
+      - name: unit
+        description: Engine unit identifier.
+      - name: cycle
+        description: Flight cycle number for this engine.
+
   - name: int_rul_target
     description: >
       Computes the Remaining Useful Life (RUL) for each engine cycle in the training set.

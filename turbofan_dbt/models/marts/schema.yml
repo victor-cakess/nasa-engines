@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: fct_training_features
+    description: >
+      Final training feature table for the RUL prediction model. Joins rolling sensor
+      statistics (int_rolling_features) with computed RUL targets (int_rul_target).
+      46 columns total: unit, cycle, 14 raw sensors, 14 rolling means, 14 rolling stds,
+      rul, rul_capped.
+    columns:
+      - name: unit
+        description: Engine unit identifier.
+      - name: cycle
+        description: Flight cycle number for this engine.
+      - name: s3
+        description: Sensor 3 reading.
+        tests:
+          - not_null
+      - name: s3_mean
+        description: 30-cycle rolling mean of sensor 3.
+        tests:
+          - not_null
+      - name: s3_std
+        description: 30-cycle rolling stddev of sensor 3.
+        tests:
+          - not_null
+      - name: rul
+        description: Raw remaining useful life (max_cycle - current_cycle).
+        tests:
+          - not_null
+      - name: rul_capped
+        description: RUL capped at 125 using LEAST(rul, 125).
+        tests:
+          - not_null
