@@ -1,0 +1,12 @@
+turbofan_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      port: 5432
+      user: YOUR_USER
+      password: YOUR_PASSWORD
+      dbname: turbofan
+      schema: analytics
+      threads: 4

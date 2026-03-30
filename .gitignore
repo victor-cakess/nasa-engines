@@ -1,1 +1,10 @@
 venv/
+.claude/
+CLAUDE.md
+src/data/*
+!src/data/.gitkeep
+turbofan_dbt/target/
+turbofan_dbt/dbt_packages/
+turbofan_dbt/logs/
+turbofan_dbt/profiles.yml
+turbofan_dbt/.user.yml

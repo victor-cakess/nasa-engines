@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: train_fd001
+      - name: test_fd001
+      - name: rul_fd001

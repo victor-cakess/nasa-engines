@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16
+    container_name: turbofan_postgres
+    environment:
+      POSTGRES_DB: turbofan
+      POSTGRES_USER: turbofan
+      POSTGRES_PASSWORD: turbofan
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

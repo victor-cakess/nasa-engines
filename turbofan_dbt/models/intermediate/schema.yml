@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_rul_target
+    description: >
+      Computes the Remaining Useful Life (RUL) for each engine cycle in the training set.
+      RUL is derived from the maximum observed cycle per engine (the failure point).
+      rul_capped clips the raw RUL at 125, following the piecewise linear target convention
+      used in the C-MAPSS literature — early cycles are treated as equally healthy.
+    columns:
+      - name: unit
+        description: Engine unit identifier.
+      - name: cycle
+        description: Flight cycle number for this engine.
+      - name: rul
+        description: Raw remaining useful life (max_cycle - current_cycle).
+      - name: rul_capped
+        description: RUL capped at 125 using LEAST(rul, 125).

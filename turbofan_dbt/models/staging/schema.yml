@@ -1,0 +1,87 @@
+version: 2
+
+models:
+  - name: stg_sensor_readings
+    description: >
+      Training sensor readings from FD001 with zero/near-zero variance columns removed.
+      Dropped: op1, op2, op3, s1, s5, s6, s10, s16, s18, s19.
+    columns:
+      - name: unit
+        description: Engine unit identifier.
+      - name: cycle
+        description: Flight cycle number for this engine.
+      - name: s2
+        description: Sensor 2 reading.
+      - name: s3
+        description: Sensor 3 reading.
+      - name: s4
+        description: Sensor 4 reading.
+      - name: s7
+        description: Sensor 7 reading.
+      - name: s8
+        description: Sensor 8 reading.
+      - name: s9
+        description: Sensor 9 reading.
+      - name: s11
+        description: Sensor 11 reading.
+      - name: s12
+        description: Sensor 12 reading.
+      - name: s13
+        description: Sensor 13 reading.
+      - name: s14
+        description: Sensor 14 reading.
+      - name: s15
+        description: Sensor 15 reading.
+      - name: s17
+        description: Sensor 17 reading.
+      - name: s20
+        description: Sensor 20 reading.
+      - name: s21
+        description: Sensor 21 reading.
+
+  - name: stg_test_readings
+    description: >
+      Test sensor readings from FD001 with the same zero/near-zero variance columns removed
+      as stg_sensor_readings.
+    columns:
+      - name: unit
+        description: Engine unit identifier.
+      - name: cycle
+        description: Flight cycle number for this engine.
+      - name: s2
+        description: Sensor 2 reading.
+      - name: s3
+        description: Sensor 3 reading.
+      - name: s4
+        description: Sensor 4 reading.
+      - name: s7
+        description: Sensor 7 reading.
+      - name: s8
+        description: Sensor 8 reading.
+      - name: s9
+        description: Sensor 9 reading.
+      - name: s11
+        description: Sensor 11 reading.
+      - name: s12
+        description: Sensor 12 reading.
+      - name: s13
+        description: Sensor 13 reading.
+      - name: s14
+        description: Sensor 14 reading.
+      - name: s15
+        description: Sensor 15 reading.
+      - name: s17
+        description: Sensor 17 reading.
+      - name: s20
+        description: Sensor 20 reading.
+      - name: s21
+        description: Sensor 21 reading.
+
+  - name: stg_rul_labels
+    description: >
+      True RUL (Remaining Useful Life) labels for each test engine unit from FD001.
+    columns:
+      - name: unit
+        description: Engine unit identifier, matches unit in stg_test_readings.
+      - name: rul
+        description: True remaining useful life (in cycles) at the last observed cycle.
